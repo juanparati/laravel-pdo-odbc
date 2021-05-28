@@ -8,6 +8,12 @@ use Juanparati\LaravelOdbc\Contracts\OdbcDriver;
 use Illuminate\Database\Connectors\Connector;
 use Illuminate\Database\Connectors\ConnectorInterface;
 
+
+/**
+ * Class OdbcConnector.
+ *
+ * @package Juanparati\LaravelOdbc
+ */
 class OdbcConnector extends Connector implements ConnectorInterface, OdbcDriver
 {
     /**
@@ -34,7 +40,7 @@ class OdbcConnector extends Connector implements ConnectorInterface, OdbcDriver
 
     public static function registerDriver()
     {
-        return function ($config, $name) {
+        return function ($config) {
             $config['database'] = $config['database'] ?? null;
 
             $pdoConnection = (new self())->connect($config);

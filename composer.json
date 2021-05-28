@@ -38,10 +38,15 @@
       "Juanparati\\LaravelOdbc\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Juanparati\\LaravelOdbc\\Tests\\": "tests"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
-        "OdbcServiceProvider"
+        "Juanparati\\LaravelOdbc\\OdbcServiceProvider"
       ]
     }
   },

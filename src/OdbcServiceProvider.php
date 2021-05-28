@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\DatabaseManager;
 
+
+/**
+ * Class OdbcServiceProvider.
+ *
+ * @package Juanparati\LaravelOdbc
+ */
 class OdbcServiceProvider extends ServiceProvider
 {
     /**
