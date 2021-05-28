@@ -1,54 +1,54 @@
 <?php
 
-namespace LaravelPdoOdbc\Drivers\Snowflake;
+namespace Juanparati\LaravelOdbc\Drivers\Snowflake;
 
 use PDO;
 use PDOStatement;
-use function count;
-use function is_bool;
-use function is_null;
 use DateTimeInterface;
-use function is_float;
-use function is_string;
-use LaravelPdoOdbc\ODBCConnection;
-use LaravelPdoOdbc\Processors\SnowflakeProcessor as Processor;
-use LaravelPdoOdbc\Grammars\Query\SnowflakeGrammar as QueryGrammer;
-use LaravelPdoOdbc\Grammars\Schema\Snowflake\Grammar as SchemaGrammer;
+use Juanparati\LaravelOdbc\Grammars\Query\SnowflakeGrammar as QueryGrammar;
+use Juanparati\LaravelOdbc\Grammars\Schema\Snowflake\Grammar as SchemaGrammar;
+use Juanparati\LaravelOdbc\Processors\SnowflakeProcessor as Processor;
+use Juanparati\LaravelOdbc\OdbcConnection;
 
-class Connection extends ODBCConnection
+
+/**
+ * Class Connection.
+ *
+ * @package Juanparati\LaravelOdbc\Drivers\Snowflake
+ */
+class Connection extends OdbcConnection
 {
+
     /**
-     * {@inheritdoc}
+     * Custom schema grammar.
+     *
+     * @return \Illuminate\Database\Schema\Grammars\Grammar
      */
-    public function getSchemaBuilder()
+    protected function getCustomSchemaGrammar()
     {
-        if (is_null($this->schemaGrammar)) {
-            $this->useDefaultSchemaGrammar();
-        }
-
-        return new SchemaBuilder($this);
+        return new SchemaGrammar();
     }
 
-    public function getDefaultQueryGrammar()
+
+    /**
+     * Custom query grammar.
+     *
+     * @return \Illuminate\Database\Query\Grammars\Grammar
+     */
+    protected function getCustomQueryGrammar()
     {
-        $queryGrammar = $this->getConfig('options.grammar.query');
-
-        if ($queryGrammar) {
-            return new $queryGrammar();
-        }
-
-        return new QueryGrammer();
+        return new QueryGrammar();
     }
 
-    public function getDefaultSchemaGrammar()
+
+    /**
+     * Custom post processor.
+     *
+     * @return \Illuminate\Database\Query\Processors\Processor
+     */
+    protected function getCustomPostProcessor()
     {
-        $schemaGrammar = $this->getConfig('options.grammar.schema');
-
-        if ($schemaGrammar) {
-            return new $schemaGrammar();
-        }
-
-        return new SchemaGrammer();
+        return new Processor();
     }
 
     /**
@@ -143,19 +143,4 @@ class Connection extends ODBCConnection
         return $bindings;
     }
 
-    /**
-     * Get the default post processor instance.
-     *
-     * @return ODBCProcessor
-     */
-    protected function getDefaultPostProcessor()
-    {
-        $processor = $this->getConfig('options.processor');
-
-        if ($processor) {
-            return new $processor();
-        }
-
-        return new Processor();
-    }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace LaravelPdoOdbc;
+namespace Juanparati\LaravelOdbc;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\DatabaseManager;
 
-class ODBCServiceProvider extends ServiceProvider
+class OdbcServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
@@ -17,8 +17,9 @@ class ODBCServiceProvider extends ServiceProvider
     {
         $this->app->resolving('db', function ($db) {
             /* @var DatabaseManager $db */
-            $db->extend('odbc', ODBCConnector::registerDriver());
+            $db->extend('odbc', OdbcConnector::registerDriver());
             $db->extend('snowflake', Drivers\Snowflake::registerDriver());
+            $db->extend('bigquery', Drivers\BigQuery::registerDriver());
         });
     }
 

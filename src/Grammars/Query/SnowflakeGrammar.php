@@ -1,14 +1,20 @@
 <?php
 
-namespace LaravelPdoOdbc\Grammars\Query;
+namespace Juanparati\LaravelOdbc\Grammars\Query;
 
 use function is_array;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Grammars\Grammar;
-use LaravelPdoOdbc\Concerns\Grammars\Snowflake as SnowflakeConcern;
+use Juanparati\LaravelOdbc\Concerns\Grammars\Snowflake as SnowflakeConcern;
 
+
+/**
+ * Class SnowflakeGrammar.
+ *
+ * @package Juanparati\LaravelOdbc\Grammars\Query
+ */
 class SnowflakeGrammar extends Grammar
 {
     use SnowflakeConcern;

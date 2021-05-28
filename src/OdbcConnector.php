@@ -1,14 +1,14 @@
 <?php
 
-namespace LaravelPdoOdbc;
+namespace Juanparati\LaravelOdbc;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use LaravelPdoOdbc\Contracts\OdbcDriver;
+use Juanparati\LaravelOdbc\Contracts\OdbcDriver;
 use Illuminate\Database\Connectors\Connector;
 use Illuminate\Database\Connectors\ConnectorInterface;
 
-class ODBCConnector extends Connector implements ConnectorInterface, OdbcDriver
+class OdbcConnector extends Connector implements ConnectorInterface, OdbcDriver
 {
     /**
      * Establish a database connection.
@@ -38,7 +38,7 @@ class ODBCConnector extends Connector implements ConnectorInterface, OdbcDriver
             $config['database'] = $config['database'] ?? null;
 
             $pdoConnection = (new self())->connect($config);
-            $connection = new ODBCConnection($pdoConnection, $config['database'], isset($config['prefix']) ? $config['prefix'] : '', $config);
+            $connection = new OdbcConnection($pdoConnection, $config['database'], isset($config['prefix']) ? $config['prefix'] : '', $config);
 
             return $connection;
         };

@@ -1,18 +1,18 @@
 <?php
 
-namespace LaravelPdoOdbc\Grammars\Schema\Snowflake;
+namespace Juanparati\LaravelOdbc\Grammars\Schema\Snowflake;
 
 use function is_int;
 use function is_null;
 use RuntimeException;
 use function in_array;
 use function is_float;
-use Illuminate\Support\Str;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\Grammar as BaseGrammar;
-use LaravelPdoOdbc\Concerns\Grammars\Snowflake as SnowflakeConcern;
+use Juanparati\LaravelOdbc\Concerns\Grammars\Snowflake as SnowflakeConcern;
+
 
 /**
  * More documentation on Snowflake columns:
@@ -22,6 +22,12 @@ use LaravelPdoOdbc\Concerns\Grammars\Snowflake as SnowflakeConcern;
  *
  * Rules for altering can be found here:
  *     https://docs.snowflake.com/en/sql-reference/sql/alter-table-column.html
+ */
+
+/**
+ * Class Grammar.
+ *
+ * @package Juanparati\LaravelOdbc\Grammars\Schema\Snowflake
  */
 class Grammar extends BaseGrammar
 {

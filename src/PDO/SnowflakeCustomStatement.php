@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelPdoOdbc\PDO;
+namespace Juanparati\LaravelOdbc\PDO;
 
 use PDO;
 use PDOStatement;
 use function func_get_args;
 use function call_user_func_array;
 
-class CustomStatement extends PDOStatement
+class SnowflakeCustomStatement extends PDOStatement
 {
     protected $pdo = null;
     protected $exec = null;

@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelPdoOdbc\Contracts;
+namespace Juanparati\LaravelOdbc\Contracts;
 
-use LaravelPdoOdbc\ODBCConnector;
+use Juanparati\LaravelOdbc\OdbcConnector;
 
 interface OdbcDriver
 {

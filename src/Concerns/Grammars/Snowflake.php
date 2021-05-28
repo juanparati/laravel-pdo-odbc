@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelPdoOdbc\Concerns\Grammars;
+namespace Juanparati\LaravelOdbc\Concerns\Grammars;
 
 use function count;
 
@@ -8,7 +8,7 @@ use function count;
  * This code is shared between the Query and Schema grammar.
  * Mainly for correcting the values and columns.
  *
- * Values: are wrapped within single qoutes.
+ * Values: are wrapped within single quotes.
  * Columns and Table names: are wrapped within double qoutes.
  */
 trait Snowflake

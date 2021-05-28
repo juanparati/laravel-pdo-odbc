@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelPdoOdbc\Processors;
+namespace Juanparati\LaravelOdbc\Processors;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Processors\Processor;

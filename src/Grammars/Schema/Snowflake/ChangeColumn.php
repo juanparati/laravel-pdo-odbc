@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelPdoOdbc\Grammars\Schema\Snowflake;
+namespace Juanparati\LaravelOdbc\Grammars\Schema\Snowflake;
 
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Connection;

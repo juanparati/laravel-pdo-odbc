@@ -1,6 +1,7 @@
 <?php
 
-namespace Juanparati\LaravelOdbc\Drivers\Snowflake;
+
+namespace Juanparati\LaravelOdbc\Drivers\BigQuery;
 
 use Illuminate\Database\Schema\Builder as BaseBuilder;
 
@@ -8,10 +9,12 @@ use Illuminate\Database\Schema\Builder as BaseBuilder;
 /**
  * Class SchemaBuilder.
  *
- * @package Juanparati\LaravelOdbc\Drivers\Snowflake
+ * @ToDo: Pending
+ * @package Juanparati\LaravelOdbc\Drivers\BigQuery
  */
 class SchemaBuilder extends BaseBuilder
 {
+
     /**
      * Determine if the given table exists.
      *
@@ -23,9 +26,9 @@ class SchemaBuilder extends BaseBuilder
         $table = $this->connection->getTablePrefix() . $table;
 
         return count($this->connection->select(
-            $this->grammar->compileTableExists(),
-            [$this->connection->getDatabaseName(), $table]
-        )) > 0;
+                $this->grammar->compileTableExists(),
+                [$this->connection->getDatabaseName(), $table]
+            )) > 0;
     }
 
     /**
@@ -46,57 +49,6 @@ class SchemaBuilder extends BaseBuilder
         return $this->connection->getPostProcessor()->processColumnListing($results);
     }
 
-    /**
-     * Drop all tables from the database.
-     *
-     * @return void
-     */
-    public function dropAllTables()
-    {
-        $tables = [];
-
-        foreach ($this->getAllTables() as $row) {
-            $row = (array) $row;
-
-            $tables[] = reset($row);
-        }
-
-        if (empty($tables)) {
-            return;
-        }
-
-        $this->disableForeignKeyConstraints();
-
-        $this->connection->statement(
-            $this->grammar->compileDropAllTables($tables)
-        );
-
-        $this->enableForeignKeyConstraints();
-    }
-
-    /**
-     * Drop all views from the database.
-     *
-     * @return void
-     */
-    public function dropAllViews()
-    {
-        $views = [];
-
-        foreach ($this->getAllViews() as $row) {
-            $row = (array) $row;
-
-            $views[] = reset($row);
-        }
-
-        if (empty($views)) {
-            return;
-        }
-
-        $this->connection->statement(
-            $this->grammar->compileDropAllViews($views)
-        );
-    }
 
     /**
      * Get all of the table names for the database.
@@ -148,4 +100,5 @@ class SchemaBuilder extends BaseBuilder
 
         return $record;
     }
+
 }
