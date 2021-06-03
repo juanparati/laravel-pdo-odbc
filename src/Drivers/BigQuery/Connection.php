@@ -4,7 +4,7 @@
 namespace Juanparati\LaravelOdbc\Drivers\BigQuery;
 
 
-use Juanparati\LaravelOdbc\Grammars\Query\BigQueryGrammar as QueryGrammar;
+use Juanparati\LaravelOdbc\Grammars\Query\BigQuery\Grammar as QueryGrammar;
 use Juanparati\LaravelOdbc\Grammars\Schema\BigQuery\Grammar as SchemaGrammar;
 use Juanparati\LaravelOdbc\Processors\BigQueryProcessor as Processor;
 use Juanparati\LaravelOdbc\OdbcConnection;

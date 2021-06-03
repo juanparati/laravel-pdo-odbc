@@ -5,7 +5,7 @@ namespace Juanparati\LaravelOdbc\Drivers\Snowflake;
 use PDO;
 use PDOStatement;
 use DateTimeInterface;
-use Juanparati\LaravelOdbc\Grammars\Query\SnowflakeGrammar as QueryGrammar;
+use Juanparati\LaravelOdbc\Grammars\Query\Snowflake\Grammar as QueryGrammar;
 use Juanparati\LaravelOdbc\Grammars\Schema\Snowflake\Grammar as SchemaGrammar;
 use Juanparati\LaravelOdbc\Processors\SnowflakeProcessor as Processor;
 use Juanparati\LaravelOdbc\OdbcConnection;

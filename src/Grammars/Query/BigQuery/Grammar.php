@@ -1,20 +1,20 @@
 <?php
 
 
-namespace Juanparati\LaravelOdbc\Grammars\Query;
+namespace Juanparati\LaravelOdbc\Grammars\Query\BigQuery;
 
 use Illuminate\Database\Query\Builder;
-use Illuminate\Database\Query\Grammars\Grammar;
+use Illuminate\Database\Query\Grammars\Grammar as BaseGrammar;
 use Juanparati\LaravelOdbc\Concerns\Grammars\BigQuery as BigQueryConcern;
 use \RuntimeException;
 
 
 /**
- * Class BigQueryGrammar.
+ * Class Grammar.
  *
  * @package Juanparati\LaravelOdbc\Grammars\Query
  */
-class BigQueryGrammar extends Grammar
+class Grammar extends BaseGrammar
 {
 
     use BigQueryConcern;
