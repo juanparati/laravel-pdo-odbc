@@ -20,7 +20,7 @@ class Snowflake extends OdbcConnector implements OdbcDriver
             $config['database'] = $config['database'] ?? null;
 
             $pdo = (new self())->connect($config);
-            $pdo->setAttribute(PDO::ATTR_STATEMENT_CLASS, [SnowflakeCustomStatement::class, [$pdo]]);
+            $pdo->setAttribute(PDO::ATTR_STATEMENT_CLASS, [SnowflakeCustomStatement::class]);
             $connection = new SnowflakeConnection($pdo, $config['database'], isset($config['prefix']) ? $config['prefix'] : '', $config);
 
             // set default fetch mode for PDO

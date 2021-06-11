@@ -33,8 +33,8 @@ class Grammar extends BaseGrammar
         'wheres',
         'groups',
         'havings',
-        'qualify',      // Pending
-        'window',       // Pending
+        'qualify',      // @ToDo: Pending
+        'window',       // @ToDo: Pending
         'orders',
         'limit',
         'offset',

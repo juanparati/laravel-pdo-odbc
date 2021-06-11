@@ -20,7 +20,7 @@ class BigQuery extends OdbcConnector implements OdbcDriver
             $config['database'] = $config['database'] ?? null;
 
             $pdo = (new self())->connect($config);
-            $pdo->setAttribute(\PDO::ATTR_STATEMENT_CLASS, [BigQueryCustomStatement::class, [$pdo]]);
+            $pdo->setAttribute(\PDO::ATTR_STATEMENT_CLASS, [BigQueryCustomStatement::class]);
             $connection = new BigQueryConnection($pdo, $config['database'], $config['prefix'] ?? '', $config);
 
             // set default fetch mode for PDO.

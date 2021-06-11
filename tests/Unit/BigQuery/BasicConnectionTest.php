@@ -56,14 +56,14 @@ class BasicConnectionTest extends TestCase
     }
 
 
+    /**
+     * Test a basic connection.
+     *
+     */
+    public function testBasicConnection() {
+        $result = DB::select('select true as result');
 
-
-    public function testConnection() {
-        $pdo = DB::getPdo();
-        DB::table('lioninsights.adcosts')
-            ->where('provider', 'facebook')
-            ->limit(20)
-            ->get();
+            $this->assertEquals("1", $result[0]->result);
     }
 
 
